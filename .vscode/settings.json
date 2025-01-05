@@ -1,0 +1,39 @@
+{
+    "files.associations": {
+        "glad.h": "c",
+        "glfw3.h": "c"
+    },
+    //"[c]": { "editor.semanticHighlighting.enabled": false }, 
+    "editor.semanticTokenColorCustomizations": {
+      "[Atom One Dark]": {
+            "rules": {
+                //"function": "#61AFEF",
+                "macro": "#6166ef"
+            }
+          }
+        
+        //"#61AFEF"
+        //"#6166ef"
+    },
+    // "editor.tokenColorCustomizations": {
+    //     "[Atom One Dark]": {
+    //         "textMateRules": [
+    //             {
+    //                 "scope": ["source entity.name.function.c"],
+    //                 "settings": {
+    //                     "foreground": "#61AFEF",
+    //                 }
+    //             },
+    //             {
+    //                 "scope": ["source meta.function-call.c","source meta.block.c","source source.c"],
+    //                 "settings": {
+    //                     "foreground": "#6166ef",
+    //                 }
+    //             }
+
+    //         ]
+        
+    //     }
+    // }
+
+}

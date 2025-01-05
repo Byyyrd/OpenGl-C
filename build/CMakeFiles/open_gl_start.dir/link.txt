@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/open_gl_start.dir/src/shader/shader.c.o CMakeFiles/open_gl_start.dir/src/main.c.o CMakeFiles/open_gl_start.dir/src/glad.c.o CMakeFiles/open_gl_start.dir/src/buffer.c.o -o open_gl_start  -lglfw /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so 

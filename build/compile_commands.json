@@ -1,0 +1,26 @@
+[
+{
+  "directory": "/home/julius/projects/c/open_gl_start/build",
+  "command": "/usr/bin/cc   -g -o CMakeFiles/open_gl_start.dir/src/shader/shader.c.o -c /home/julius/projects/c/open_gl_start/src/shader/shader.c",
+  "file": "/home/julius/projects/c/open_gl_start/src/shader/shader.c",
+  "output": "CMakeFiles/open_gl_start.dir/src/shader/shader.c.o"
+},
+{
+  "directory": "/home/julius/projects/c/open_gl_start/build",
+  "command": "/usr/bin/cc   -g -o CMakeFiles/open_gl_start.dir/src/main.c.o -c /home/julius/projects/c/open_gl_start/src/main.c",
+  "file": "/home/julius/projects/c/open_gl_start/src/main.c",
+  "output": "CMakeFiles/open_gl_start.dir/src/main.c.o"
+},
+{
+  "directory": "/home/julius/projects/c/open_gl_start/build",
+  "command": "/usr/bin/cc   -g -o CMakeFiles/open_gl_start.dir/src/glad.c.o -c /home/julius/projects/c/open_gl_start/src/glad.c",
+  "file": "/home/julius/projects/c/open_gl_start/src/glad.c",
+  "output": "CMakeFiles/open_gl_start.dir/src/glad.c.o"
+},
+{
+  "directory": "/home/julius/projects/c/open_gl_start/build",
+  "command": "/usr/bin/cc   -g -o CMakeFiles/open_gl_start.dir/src/buffer.c.o -c /home/julius/projects/c/open_gl_start/src/buffer.c",
+  "file": "/home/julius/projects/c/open_gl_start/src/buffer.c",
+  "output": "CMakeFiles/open_gl_start.dir/src/buffer.c.o"
+}
+]

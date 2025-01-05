@@ -1,0 +1,3 @@
+/home/julius/projects/c/open_gl_start/build/CMakeFiles/open_gl_start.dir
+/home/julius/projects/c/open_gl_start/build/CMakeFiles/edit_cache.dir
+/home/julius/projects/c/open_gl_start/build/CMakeFiles/rebuild_cache.dir
