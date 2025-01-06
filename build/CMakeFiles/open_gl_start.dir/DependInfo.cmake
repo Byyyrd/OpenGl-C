@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/julius/projects/c/open_gl_start/src/buffer.c" "CMakeFiles/open_gl_start.dir/src/buffer.c.o" "gcc" "CMakeFiles/open_gl_start.dir/src/buffer.c.o.d"
   "/home/julius/projects/c/open_gl_start/src/glad.c" "CMakeFiles/open_gl_start.dir/src/glad.c.o" "gcc" "CMakeFiles/open_gl_start.dir/src/glad.c.o.d"
   "/home/julius/projects/c/open_gl_start/src/main.c" "CMakeFiles/open_gl_start.dir/src/main.c.o" "gcc" "CMakeFiles/open_gl_start.dir/src/main.c.o.d"
+  "/home/julius/projects/c/open_gl_start/src/model_loader.c" "CMakeFiles/open_gl_start.dir/src/model_loader.c.o" "gcc" "CMakeFiles/open_gl_start.dir/src/model_loader.c.o.d"
   "/home/julius/projects/c/open_gl_start/src/shader/shader.c" "CMakeFiles/open_gl_start.dir/src/shader/shader.c.o" "gcc" "CMakeFiles/open_gl_start.dir/src/shader/shader.c.o.d"
   )
 

@@ -201,6 +201,30 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/open_gl_start.dir/build.make CMakeFiles/open_gl_start.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/model_loader.o: src/model_loader.c.o
+.PHONY : src/model_loader.o
+
+# target to build an object file
+src/model_loader.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/open_gl_start.dir/build.make CMakeFiles/open_gl_start.dir/src/model_loader.c.o
+.PHONY : src/model_loader.c.o
+
+src/model_loader.i: src/model_loader.c.i
+.PHONY : src/model_loader.i
+
+# target to preprocess a source file
+src/model_loader.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/open_gl_start.dir/build.make CMakeFiles/open_gl_start.dir/src/model_loader.c.i
+.PHONY : src/model_loader.c.i
+
+src/model_loader.s: src/model_loader.c.s
+.PHONY : src/model_loader.s
+
+# target to generate assembly for a file
+src/model_loader.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/open_gl_start.dir/build.make CMakeFiles/open_gl_start.dir/src/model_loader.c.s
+.PHONY : src/model_loader.c.s
+
 src/shader/shader.o: src/shader/shader.c.o
 .PHONY : src/shader/shader.o
 
@@ -243,6 +267,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/model_loader.o"
+	@echo "... src/model_loader.i"
+	@echo "... src/model_loader.s"
 	@echo "... src/shader/shader.o"
 	@echo "... src/shader/shader.i"
 	@echo "... src/shader/shader.s"

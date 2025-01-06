@@ -1,11 +1,11 @@
 #include "buffer.h"
 
 
-void bindBuffer(BUFFER buffer){
+void bindBuffer(Buffer buffer){
     glBindBuffer(buffer.target,buffer.handle);
 }
-BUFFER newBuffer(GLenum target,GLsizeiptr size,void* data,GLenum usage){
-    BUFFER buf;
+Buffer newBuffer(GLenum target,GLsizeiptr size,void* data,GLenum usage){
+    Buffer buf;
     buf.target = target;
     glGenBuffers(1,&buf.handle);
     glBindBuffer(buf.target,buf.handle);

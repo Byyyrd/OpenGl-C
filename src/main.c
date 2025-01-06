@@ -1,21 +1,30 @@
+#include <string.h>
 #include <stdio.h>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "shader/shader.h"
 #include "buffer.h"
+#include "model_loader.h"
+#include <cglm/cglm.h>
 
-float vertices[] = {
-    -0.5f,-0.5f, 0.0f,
-     0.5f,-0.5f, 0.0f,
-     0.5f, 0.5f, 0.0f,
-    -0.5f, 0.5f, 0.0f
-};
-GLuint indices[] = {
-    0,1,2,
-    2,3,0
-};
 
-int main(int, char**){
+int startGL(Model model){
+//     float vertices[] = {
+//     -0.5f,-0.5f, 0.0f,
+//      0.5f,-0.5f, 0.0f,
+//      0.5f, 0.5f, 0.0f,
+//     -0.5f, 0.5f, 0.0f
+// };
+// GLuint indices[] = {
+//     0,1,2,
+//     2,3,0
+// };
+    float vertices[model.verticesCount];
+    memcpy(vertices,model.vertices,sizeof(float)*model.verticesCount);
+    
+    GLuint indices[model.indicesCount];
+    memcpy(indices,model.indices,sizeof(GLuint)*model.indicesCount);
+
     GLFWwindow* window;
     if(!glfwInit()){
         return -1;
@@ -39,22 +48,14 @@ int main(int, char**){
     glGenVertexArrays(1, &VAO);  
     glBindVertexArray(VAO);
 
-    BUFFER VBO = newBuffer(GL_ARRAY_BUFFER,sizeof(vertices),&vertices,GL_STATIC_DRAW);
+    Buffer VBO = newBuffer(GL_ARRAY_BUFFER,sizeof(vertices),&vertices,GL_STATIC_DRAW);
     bindBuffer(VBO);
-    // GLuint VBO;
-    // glGenBuffers(1,&VBO);
-    // glBindBuffer(GL_ARRAY_BUFFER,VBO);
-    // glBufferData(GL_ARRAY_BUFFER,sizeof(vertices),&vertices,GL_STATIC_DRAW);
 
     glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,sizeof(float)*3,(void*)0);
     glEnableVertexAttribArray(0); 
 
-    BUFFER EBO = newBuffer(GL_ELEMENT_ARRAY_BUFFER,sizeof(indices),&indices,GL_STATIC_DRAW);
+    Buffer EBO = newBuffer(GL_ELEMENT_ARRAY_BUFFER,sizeof(indices),&indices,GL_STATIC_DRAW);
     bindBuffer(EBO);
-    // GLuint EBO;
-    // glGenBuffers(1,&EBO);
-    // glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,EBO);
-    // glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(indices),&indices,GL_STATIC_DRAW);
     
     GLuint program = getShaderProgram();
 
@@ -68,8 +69,14 @@ int main(int, char**){
         glfwPollEvents();
 
         glClear(GL_COLOR_BUFFER_BIT);
-        glDrawElements(GL_TRIANGLES, 6,GL_UNSIGNED_INT,0);
+        glDrawElements(GL_TRIANGLES, sizeof(indices)/sizeof(GLuint),GL_UNSIGNED_INT,0);
         glfwSwapBuffers(window);
     }
     glfwTerminate();
+    return 0;
+}
+
+int main(int, char**){
+    Model model = loadFromFile("mokey.obj");
+    return startGL(model); 
 }

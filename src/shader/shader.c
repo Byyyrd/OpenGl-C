@@ -35,30 +35,32 @@ char * readFile(char* source){
     char *absolutePath;
     asprintf(&absolutePath,"/home/julius/projects/c/open_gl_start/src/shader/%s",source);
     fptr = fopen(absolutePath, "r");
-    //find out file lenght
-    fseek(fptr, 0L, SEEK_END);
-    long size = ftell(fptr);
-    //create array at filesize
-    char *content = malloc(size);
-
-    //Go Back to File start
-    rewind(fptr);
+    
 
     //Start reading when file could be opened
     if(fptr != NULL) {
+        //find out file lenght
+        fseek(fptr, 0L, SEEK_END);
+        long size = ftell(fptr);
+        //create array at filesize
+        char *content = malloc(size);
+
+        //Go Back to File start
+        rewind(fptr);
         // Read the content and print it
         int ch,i = 0;
         while((ch = fgetc(fptr)) != EOF){
             content[i] = ch;
             i++;
         }
+        // Close the file
+        fclose(fptr);
+        content[size] = '\0';
+        return content;
     } else {
         printf("Not able to open the file.\n");
     }   
-    // Close the file
-    fclose(fptr);
-    content[size] = '\0';
-    return content;
+    return "";
 }
 
 GLuint generateShaderFromSource(char* source,GLuint shaderType){
