@@ -61,7 +61,7 @@ CMakeFiles/open_gl_start.dir/src/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /home/julius/projects/c/open_gl_start/src/buffer.h \
  /home/julius/projects/c/open_gl_start/src/model_loader.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h \
+ /home/julius/projects/c/open_gl_start/src/utils.h \
  /usr/local/include/cglm/cglm.h /usr/local/include/cglm/common.h \
  /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -71,6 +71,7 @@ CMakeFiles/open_gl_start.dir/src/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h \
  /usr/local/include/cglm/types.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdalign.h \
  /usr/local/include/cglm/simd/intrin.h \

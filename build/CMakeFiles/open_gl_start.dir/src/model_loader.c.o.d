@@ -51,10 +51,10 @@ CMakeFiles/open_gl_start.dir/src/model_loader.c.o: \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h \
  /usr/include/GLFW/glfw3.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h /usr/include/GL/gl.h \
- /usr/include/GL/glext.h /usr/include/KHR/khrplatform.h
+ /usr/include/GL/glext.h /usr/include/KHR/khrplatform.h \
+ /home/julius/projects/c/open_gl_start/src/utils.h

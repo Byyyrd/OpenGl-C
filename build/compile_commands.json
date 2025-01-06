@@ -28,5 +28,11 @@
   "command": "/usr/bin/cc   -g -o CMakeFiles/open_gl_start.dir/src/model_loader.c.o -c /home/julius/projects/c/open_gl_start/src/model_loader.c",
   "file": "/home/julius/projects/c/open_gl_start/src/model_loader.c",
   "output": "CMakeFiles/open_gl_start.dir/src/model_loader.c.o"
+},
+{
+  "directory": "/home/julius/projects/c/open_gl_start/build",
+  "command": "/usr/bin/cc   -g -o CMakeFiles/open_gl_start.dir/src/utils.c.o -c /home/julius/projects/c/open_gl_start/src/utils.c",
+  "file": "/home/julius/projects/c/open_gl_start/src/utils.c",
+  "output": "CMakeFiles/open_gl_start.dir/src/utils.c.o"
 }
 ]

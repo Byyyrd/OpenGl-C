@@ -82,8 +82,9 @@ Model loadFromFile(char *source){
                         for(int j = 0; j<indexLenght;j++){
                             index[j] = newInt[j];
                         }
+                        c_printArray(index,indexLenght);
                         int value = atoi((const char*)index);
-                        indices[indicesIndex] = value;
+                        indices[indicesIndex] = (GLuint) value;
                         indicesIndex++;
                         valueCount++;
                         k = -1;
@@ -97,9 +98,9 @@ Model loadFromFile(char *source){
 
         }
         Model model;
-        model.vertices = vertices;
+        model.vertices =(float *) vertices;
         model.verticesCount = verticesCount * 3;
-        model.indices = indices;
+        model.indices = (GLuint *)indices;
         model.indicesCount = indicesCount * 3;
         return model;
     } else {

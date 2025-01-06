@@ -3,14 +3,14 @@
 
 GLuint getShaderProgram(){
     //Vertex Shader:
-    GLuint vertexShader = generateShaderFromSource("vertex.shader",GL_VERTEX_SHADER);
+    GLuint vertexShaderId = generateShaderFromSource("vertex.shader",GL_VERTEX_SHADER);
     //Fragment Shader
-    GLuint fragmentShader = generateShaderFromSource("fragment.shader",GL_FRAGMENT_SHADER);
+    GLuint fragmentShaderId = generateShaderFromSource("fragment.shader",GL_FRAGMENT_SHADER);
 
     //Shader Program
     GLuint program = glCreateProgram();
-    glAttachShader(program,vertexShader);
-    glAttachShader(program,fragmentShader);
+    glAttachShader(program,vertexShaderId);
+    glAttachShader(program,fragmentShaderId);
     glLinkProgram(program);
 
     int  success;
@@ -24,8 +24,8 @@ GLuint getShaderProgram(){
     }
     
 
-    glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader);
+    glDeleteShader(vertexShaderId);
+    glDeleteShader(fragmentShaderId);
     return program;
 }
 

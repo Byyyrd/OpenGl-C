@@ -1,7 +1,10 @@
 {
     "files.associations": {
         "glad.h": "c",
-        "glfw3.h": "c"
+        "glfw3.h": "c",
+        "call.h": "c",
+        "cglm.h": "c",
+        "util.h": "c"
     },
     //"[c]": { "editor.semanticHighlighting.enabled": false }, 
     "editor.semanticTokenColorCustomizations": {

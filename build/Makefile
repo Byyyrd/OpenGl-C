@@ -249,6 +249,30 @@ src/shader/shader.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/open_gl_start.dir/build.make CMakeFiles/open_gl_start.dir/src/shader/shader.c.s
 .PHONY : src/shader/shader.c.s
 
+src/utils.o: src/utils.c.o
+.PHONY : src/utils.o
+
+# target to build an object file
+src/utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/open_gl_start.dir/build.make CMakeFiles/open_gl_start.dir/src/utils.c.o
+.PHONY : src/utils.c.o
+
+src/utils.i: src/utils.c.i
+.PHONY : src/utils.i
+
+# target to preprocess a source file
+src/utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/open_gl_start.dir/build.make CMakeFiles/open_gl_start.dir/src/utils.c.i
+.PHONY : src/utils.c.i
+
+src/utils.s: src/utils.c.s
+.PHONY : src/utils.s
+
+# target to generate assembly for a file
+src/utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/open_gl_start.dir/build.make CMakeFiles/open_gl_start.dir/src/utils.c.s
+.PHONY : src/utils.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -273,6 +297,9 @@ help:
 	@echo "... src/shader/shader.o"
 	@echo "... src/shader/shader.i"
 	@echo "... src/shader/shader.s"
+	@echo "... src/utils.o"
+	@echo "... src/utils.i"
+	@echo "... src/utils.s"
 .PHONY : help
 
 

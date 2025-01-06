@@ -15,10 +15,13 @@ add_executable(open_gl_start
     src/buffer.c
     src/model_loader.c
     src/model_loader.h
+    src/utils.c
+    src/utils.h
 )
 
 target_link_libraries(open_gl_start
     PRIVATE cglm
     glfw
     OpenGL::GL
+    m
 )
