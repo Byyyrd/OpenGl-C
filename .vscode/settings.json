@@ -4,7 +4,11 @@
         "glfw3.h": "c",
         "call.h": "c",
         "cglm.h": "c",
-        "util.h": "c"
+        "util.h": "c",
+        "array": "c",
+        "buffer": "c",
+        "string_view": "c",
+        "initializer_list": "c"
     },
     //"[c]": { "editor.semanticHighlighting.enabled": false }, 
     "editor.semanticTokenColorCustomizations": {

@@ -9,31 +9,27 @@
 
 
 int startGL(Model model){
-//     float vertices[] = {
-//     -0.5f,-0.5f, 0.0f,
-//      0.5f,-0.5f, 0.0f,
-//      0.5f, 0.5f, 0.0f,
-//     -0.5f, 0.5f, 0.0f
-// };
-// GLuint indices[] = {
-//     0,1,2,
-//     2,3,0
-// };
-    u_printArray(model.indices,model.indicesCount);
-    float vertices[model.verticesCount];
-    memcpy(vertices,model.vertices,sizeof(float)*model.verticesCount);
     
-    int size = model.indicesCount;
-    GLuint indices[size];
-    memcpy(indices,model.indices,sizeof(indices));
-    u_printArray(model.indices,model.indicesCount);
-    GLuint max = 0;
-    for(int i = 0; i<model.indicesCount;i++){
-        if(indices[i] > max){
-            max = indices[i];
-        }
+}
+
+int main(int, char**){
+    Model model = loadFromFile("monkey2.obj");
+
+    float *vertices = malloc(sizeof(float) * model.verticesCount);
+    int size_v = model.verticesCount;
+    for(int i = 0;i < model.verticesCount; i++){
+        vertices[i] = model.vertices[i];
     }
-    printf("%u\n",max);
+    // int size_v = model.verticesCount;
+    // float vertices[size_v];
+    // memcpy(vertices,model.vertices,size_v * sizeof(float));
+
+    GLuint *indices = malloc(sizeof(GLuint) * model.indicesCount);
+    int size_i = model.indicesCount;
+    for(int i = 0;i < model.indicesCount; i++){
+        indices[i] = model.indices[i] - 1;
+    }
+
     GLFWwindow* window;
     if(!glfwInit()){
         return -1;
@@ -59,14 +55,14 @@ int startGL(Model model){
     GLuint VAO;
     glGenVertexArrays(1, &VAO);  
     glBindVertexArray(VAO);
-
-    Buffer VBO = newBuffer(GL_ARRAY_BUFFER,sizeof(vertices),&vertices,GL_STATIC_DRAW);
+    
+    Buffer VBO = newBuffer(GL_ARRAY_BUFFER,sizeof(float) * size_v,vertices,GL_STATIC_DRAW);
     bindBuffer(VBO);
 
     glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,sizeof(float)*3,(void*)0);
     glEnableVertexAttribArray(0); 
 
-    Buffer EBO = newBuffer(GL_ELEMENT_ARRAY_BUFFER,sizeof(indices),&indices,GL_STATIC_DRAW);
+    Buffer EBO = newBuffer(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * size_i,indices,GL_STATIC_DRAW);
     bindBuffer(EBO);
     
     GLuint program = getShaderProgram();
@@ -77,9 +73,10 @@ int startGL(Model model){
     mat4 modelMat;
     glm_mat4_identity(modelMat);
     glm_rotate(modelMat, glm_rad(-55.0f), (vec3){1.0f, 0.0f, 0.0f}); 
+    //glm_translate(modelMat,(vec3){0.0f, 0.0f, 10.0f}); 
     mat4 view;
     glm_mat4_identity(view);
-    glm_translate(view, (vec3){0.0f, 0.0f, -3.0f}); 
+    glm_translate(view, (vec3){0.0f, 0.0f, -5.0f}); 
 
     mat4 projection;
     glm_perspective(glm_rad(45.0f), 800.0f / 600.0f, 0.1f, 100.0f,projection);
@@ -96,6 +93,7 @@ int startGL(Model model){
     glClearColor(0,0,0,1);
     float lastFrame,currentFrame,deltaTime;
     lastFrame = glfwGetTime();
+    
     while (!glfwWindowShouldClose(window))
     {
         glfwPollEvents();
@@ -110,22 +108,12 @@ int startGL(Model model){
         modelLoc = glGetUniformLocation(program, "model");
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE,(const float*)modelMat);
 
-        glDrawElements(GL_TRIANGLES, sizeof(indices)/sizeof(GLuint),GL_UNSIGNED_INT,0);
+        glDrawElements(GL_TRIANGLES, size_i,GL_UNSIGNED_INT,0);
         glfwSwapBuffers(window);
     }
+    free(vertices);
+    free(indices);
     glfwTerminate();
     return 0;
-}
-
-int main(int, char**){
-    Model model = loadFromFile("mokey.obj");
-    
-    return startGL(model); 
-    // unsigned int a1[] = {1u,2u,4u,8u};
-    // unsigned int a2[4];
-    // u_printArray(a1,sizeof(a1)/sizeof(unsigned int));
-    // memcpy(a2,a1,sizeof(a1));
-    // u_printArray(a1,sizeof(a1)/sizeof(unsigned int));
-    // u_printArray(a2,sizeof(a2)/sizeof(unsigned int));
-
+    //return startGL(&model,sizeof(model)); 
 }

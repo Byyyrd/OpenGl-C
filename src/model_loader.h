@@ -3,6 +3,7 @@
     #include <stdio.h>
     #include <stdlib.h>
     #include <GLFW/glfw3.h>
+    #include <string.h>
     #include "utils.h"
 
     typedef struct Model Model;
