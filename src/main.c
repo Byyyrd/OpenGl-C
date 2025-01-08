@@ -9,26 +9,18 @@
 
 
 int startGL(Model model){
-    
-}
+    //Turn indexed data into one vertex Array
+    // float vertices[model.indicesSize/sizeof(GLuint)];
+    // for(int i = 0;i < model.indicesSize/sizeof(GLuint);i++){
+    //     //Every forth value is a normal for that face
+    //     int index = model.indices[i];
+    //     if(i%4 != 0){
+    //         vertices[i] = model.vertices[index];
+    //     }else{
+    //         vertices[i] = model.normals[index];
+    //     }   
+    // }
 
-int main(int, char**){
-    Model model = loadFromFile("monkey2.obj");
-
-    float *vertices = malloc(sizeof(float) * model.verticesCount);
-    int size_v = model.verticesCount;
-    for(int i = 0;i < model.verticesCount; i++){
-        vertices[i] = model.vertices[i];
-    }
-    // int size_v = model.verticesCount;
-    // float vertices[size_v];
-    // memcpy(vertices,model.vertices,size_v * sizeof(float));
-
-    GLuint *indices = malloc(sizeof(GLuint) * model.indicesCount);
-    int size_i = model.indicesCount;
-    for(int i = 0;i < model.indicesCount; i++){
-        indices[i] = model.indices[i] - 1;
-    }
 
     GLFWwindow* window;
     if(!glfwInit()){
@@ -56,13 +48,13 @@ int main(int, char**){
     glGenVertexArrays(1, &VAO);  
     glBindVertexArray(VAO);
     
-    Buffer VBO = newBuffer(GL_ARRAY_BUFFER,sizeof(float) * size_v,vertices,GL_STATIC_DRAW);
+    Buffer VBO = newBuffer(GL_ARRAY_BUFFER,model.verticesSize,model.vertices,GL_STATIC_DRAW);
     bindBuffer(VBO);
 
     glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,sizeof(float)*3,(void*)0);
     glEnableVertexAttribArray(0); 
 
-    Buffer EBO = newBuffer(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * size_i,indices,GL_STATIC_DRAW);
+    Buffer EBO = newBuffer(GL_ELEMENT_ARRAY_BUFFER, model.indicesSize,model.indices,GL_STATIC_DRAW);
     bindBuffer(EBO);
     
     GLuint program = getShaderProgram();
@@ -107,13 +99,20 @@ int main(int, char**){
         glm_rotate(modelMat,deltaTime * glm_rad(50.0f), (vec3){0.5f, 1.0f, 0.0f}); 
         modelLoc = glGetUniformLocation(program, "model");
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE,(const float*)modelMat);
-
-        glDrawElements(GL_TRIANGLES, size_i,GL_UNSIGNED_INT,0);
+        glDrawElements(GL_TRIANGLES, model.indicesSize/sizeof(GLuint),GL_UNSIGNED_INT,0);
+        //glDrawElementsInstanced(GL_TRIANGLES, model.indicesSize/sizeof(GLuint),GL_UNSIGNED_INT,0,model.indicesSize/sizeof(GLuint)/3);
         glfwSwapBuffers(window);
     }
-    free(vertices);
-    free(indices);
+    free(model.vertices);
+    free(model.indices);
+    free(model.normals);
     glfwTerminate();
     return 0;
-    //return startGL(&model,sizeof(model)); 
+}
+
+int main(int, char**){
+    Model model = loadFromFile("monkey_normals.obj");
+    //u_printArray(model.indices,model.indicesSize/sizeof(GLuint));
+    int success = startGL(model); 
+    return success;
 }
