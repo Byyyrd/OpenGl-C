@@ -44,7 +44,7 @@ void loadIndicesFromLine(char line[],GLuint *indices,int *indicesIndex){
     int i = 2,j = 0;
     int valueCount = 0;
     char newInt[4];
-    while (valueCount < 3){
+    while (valueCount < 6){
         char ch = line[i];
         if(ch == ' ' || ch == '\n' || ch == '/'){
             newInt[j] = '\0';
@@ -58,17 +58,19 @@ void loadIndicesFromLine(char line[],GLuint *indices,int *indicesIndex){
             (*indicesIndex)++;
             valueCount++;
             j = -1;
-            // if(valueCount == 3){
-            //     //skip to one space before normals value (i++ at the end)
-            //     while(line[i + 1] == '/'){
-            //         i++;
-            //     }
-            // }else{
-                //skip to one space before next Index Value (i++ at the end)
-                while(line[i] != ' '){
+            //Only skip to next value when not already before it
+            if(ch != ' '){
+                //skip to one space before normals value (i++ at the end)
+                while(line[i + 1] == '/'){
                     i++;
                 }
-            //}
+            }
+            // else{
+            //     //skip to one space before next Index Value (i++ at the end)
+            //     while(line[i] != ' '){
+            //         i++;
+            //     }
+            // }
             
             
         }else{
@@ -118,7 +120,7 @@ Model loadFromFile(char *source){
         float *vertices = malloc(verticesCount * sizeof(float));
         int verticesIndex = 0;
 
-        int indicesCount = countLines(fptr,'f',' ') * 4;
+        int indicesCount = countLines(fptr,'f',' ') * 6;
         GLuint *indices = malloc(indicesCount * sizeof(GLuint));
         int indicesIndex = 0;
 

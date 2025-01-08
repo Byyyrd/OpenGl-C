@@ -2,10 +2,11 @@
 
 
 GLuint getShaderProgram(){
+    
     //Vertex Shader:
-    GLuint vertexShaderId = generateShaderFromSource("vertex.shader",GL_VERTEX_SHADER);
+    GLuint vertexShaderId = _private_generateShaderFromSource("vertex.shader",GL_VERTEX_SHADER);
     //Fragment Shader
-    GLuint fragmentShaderId = generateShaderFromSource("fragment.shader",GL_FRAGMENT_SHADER);
+    GLuint fragmentShaderId = _private_generateShaderFromSource("fragment.shader",GL_FRAGMENT_SHADER);
 
     //Shader Program
     GLuint program = glCreateProgram();
@@ -29,7 +30,7 @@ GLuint getShaderProgram(){
     return program;
 }
 
-char * readFile(char* source){
+char *readFile(char* source){
     FILE *fptr;
     
     char *absolutePath;
@@ -53,9 +54,9 @@ char * readFile(char* source){
             content[i] = ch;
             i++;
         }
+        
         // Close the file
         fclose(fptr);
-        content[size] = '\0';
         return content;
     } else {
         printf("Not able to open the file.\n");
@@ -63,9 +64,10 @@ char * readFile(char* source){
     return "";
 }
 
-GLuint generateShaderFromSource(char* source,GLuint shaderType){
+GLuint _private_generateShaderFromSource(char* source,GLuint shaderType){
     char* shaderCode = readFile(source);
     GLuint shader = glCreateShader(shaderType);
+    
     glShaderSource(shader,1,(const char* const*)&shaderCode,NULL);
     glCompileShader(shader);
 
@@ -83,3 +85,18 @@ GLuint generateShaderFromSource(char* source,GLuint shaderType){
     return shader;
 }
 
+void setUniformVec3(GLuint programId, char *name,vec3 data){
+    int modelLoc = glGetUniformLocation(programId, name);
+    glUniform3fv(modelLoc, 1,(const float*)data);
+}
+
+void setUniformMat4(GLuint programId, char *name, mat4 data)
+{
+    int modelLoc = glGetUniformLocation(programId, name);
+    glUniformMatrix4fv(modelLoc, 1, GL_FALSE,(const float*)data);
+}
+void setUniformMat3(GLuint programId, char *name, mat3 data)
+{
+    int modelLoc = glGetUniformLocation(programId, name);
+    glUniformMatrix3fv(modelLoc, 1, GL_FALSE,(const float*)data);
+}

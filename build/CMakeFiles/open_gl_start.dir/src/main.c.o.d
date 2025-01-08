@@ -35,6 +35,7 @@ CMakeFiles/open_gl_start.dir/src/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
  /usr/include/GLFW/glfw3.h \
  /home/julius/projects/c/open_gl_start/src/shader/shader.h \
+ /usr/local/include/cglm/cglm.h /usr/local/include/cglm/common.h \
  /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
@@ -58,11 +59,8 @@ CMakeFiles/open_gl_start.dir/src/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
- /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /home/julius/projects/c/open_gl_start/src/buffer.h \
- /home/julius/projects/c/open_gl_start/src/model_loader.h \
- /usr/local/include/cglm/cglm.h /usr/local/include/cglm/common.h \
- /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
@@ -116,4 +114,6 @@ CMakeFiles/open_gl_start.dir/src/main.c.o: \
  /usr/local/include/cglm/sphere.h /usr/local/include/cglm/ease.h \
  /usr/local/include/cglm/curve.h /usr/local/include/cglm/bezier.h \
  /usr/local/include/cglm/ray.h /usr/local/include/cglm/affine2d.h \
+ /home/julius/projects/c/open_gl_start/src/buffer.h \
+ /home/julius/projects/c/open_gl_start/src/model_loader.h \
  /home/julius/projects/c/open_gl_start/src/utils.h
