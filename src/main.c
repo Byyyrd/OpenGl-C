@@ -99,10 +99,9 @@ int startGL(Model model){
     mat4 view = GLM_MAT4_IDENTITY_INIT;
     glm_translate(view, (vec3){0.0f, 0.0f, -5.0f}); 
 
+    //Init at forward direction
     vec3 direction;
-    //GLM_Forward is Backward??
-    glm_vec3_copy(GLM_FORWARD,direction);
-    glm_vec3_inv(direction);
+    glm_vec3_copy((vec3){0.0f, 0.0f, 1.0f},direction);
 
     mat4 projection;
     glm_perspective(glm_rad(45.0f), 800.0f / 600.0f, 0.1f, 100.0f,projection);
@@ -138,15 +137,16 @@ int startGL(Model model){
         if(keys[GLFW_KEY_S]){
             //vec3 movement;
             //glm_vec3_scale(direction,-10*deltaTime, movement);
-            // glm_translate(view,movement);
+            //glm_translate(view,movement);
             glm_translate_z(view,-10*deltaTime);
             setUniformMat4(program,"view",view);
         }
         if(keys[GLFW_KEY_W]){
-            // vec3 movement;
+            //vec3 movement;
             // glm_vec3_scale(direction,10*deltaTime, movement);
-            // glm_translate(view,movement);
-             glm_translate_z(view,10*deltaTime);
+            //glm_translate(view,movement);
+            
+            glm_translate_z(view,10*deltaTime);
             setUniformMat4(program,"view",view);
         }
         if(keys[GLFW_KEY_A]){
@@ -159,20 +159,22 @@ int startGL(Model model){
         }
         if(keys[GLFW_KEY_RIGHT]){
             glm_rotate_y(projection,deltaTime * glm_rad(25.0f),projection);
-            //glm_vec3_rotate(direction,deltaTime * glm_rad(25.0f),(vec3){0,1,0});
+            //glm_vec3_rotate(direction,deltaTime * -glm_rad(25.0f),(vec3){0,1,0});
             setUniformMat4(program,"projection",projection);
         }
         if(keys[GLFW_KEY_LEFT]){
             glm_rotate_y(projection,deltaTime * -glm_rad(25.0f),projection);
-            //glm_vec3_rotate(direction,deltaTime * -glm_rad(25.0f),(vec3){0,1,0});
+            //glm_vec3_rotate(direction,deltaTime * glm_rad(25.0f),(vec3){0,1,0});
             setUniformMat4(program,"projection",projection);
         }
         if(keys[GLFW_KEY_DOWN]){
             glm_rotate_x(projection,deltaTime * glm_rad(25.0f),projection);
+            //glm_vec3_rotate(direction,deltaTime * -glm_rad(25.0f),(vec3){1,0,0});
             setUniformMat4(program,"projection",projection);
         }
         if(keys[GLFW_KEY_UP]){
             glm_rotate_x(projection,deltaTime * -glm_rad(25.0f),projection);
+            //glm_vec3_rotate(direction,deltaTime * glm_rad(25.0f),(vec3){1,0,0});
             setUniformMat4(program,"projection",projection);
         }
 
